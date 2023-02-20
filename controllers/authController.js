@@ -23,7 +23,8 @@ exports.loginUser = async (req, res) => {
     let user = await User.findOne({ email });
     let same = await bcrypt.compare(password, user.password);
     if (same) {
-      res.status(200).send('You logged in');
+      req.session.userID = user._id;
+      res.status(200).redirect('/')
     } else {
       res.send('Geçersiz');
     }
@@ -33,4 +34,10 @@ exports.loginUser = async (req, res) => {
       error,
     });
   }
+};
+
+exports.logoutUser = (req, res) => {
+  req.session.destroy(() => {
+    res.redirect('/');
+  });
 };
