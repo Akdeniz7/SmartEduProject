@@ -15,7 +15,7 @@ const app = express();
 
 //Connect DB
 mongoose.set('strictQuery', false)
-mongoose.connect('mongodb://127.0.0.1:27017/smartedu-db', {
+mongoose.connect('mongodb+srv://akdeniz:IAlRoNTY1BjgEZBq@cluster0.oxki7ux.mongodb.net/smartedu-db?retryWrites=true&w=majority', {
 }).then(() => {
     console.log('DB Connected Successfully')
 });
@@ -35,7 +35,7 @@ app.use(session({
     secret: 'keyboard_cat',
     resave: false,
     saveUninitialized: true,
-    store: MongoStore.create({ mongoUrl: 'mongodb://127.0.0.1:27017/smartedu-db' })
+    store: MongoStore.create({ mongoUrl: 'mongodb+srv://akdeniz:IAlRoNTY1BjgEZBq@cluster0.oxki7ux.mongodb.net/smartedu-db?retryWrites=true&w=majority' })
 }))
 app.use('*', (req, res, next) => { // Taking user id when logged in..
     userIN = req.session.userID;
