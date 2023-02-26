@@ -35,7 +35,7 @@ app.use(session({
     secret: 'keyboard_cat',
     resave: false,
     saveUninitialized: true,
-    store: MongoStore.create({ mongoUrl: 'mongodb+srv://akdeniz:IAlRoNTY1BjgEZBq@cluster0.oxki7ux.mongodb.net/smartedu-db?retryWrites=true&w=majority' })
+    store: MongoStore.create({ mongoUrl: connectString })
 }))
 app.use('*', (req, res, next) => { // Taking user id when logged in..
     userIN = req.session.userID;
