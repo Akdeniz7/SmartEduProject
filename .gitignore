@@ -44,7 +44,6 @@ build/Release
 
 # Dependency directories
 node_modules/
-temp/
 jspm_packages/
 
 # Snowpack dependency directory (https://snowpack.dev/)
@@ -107,6 +106,7 @@ dist
 
 # vuepress v2.x temp and cache directory
 .temp
+temp
 
 # Docusaurus cache and generated files
 .docusaurus
